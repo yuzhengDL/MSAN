@@ -72,8 +72,8 @@ class LTS:
 		self.NIC_pred_data = tf.placeholder(tf.float32, shape=[None, self.config.dim_NIC], name="ims_NIC_pred_data")
 
 		# Map image space features into a limited text space.
-		#self.input_vgg = tf.layers.batch_normalization(self.VGG_local_pred_data, training=self.phase)
-		self.input_vgg = self.VGG_local_pred_data
+		self.input_vgg = tf.layers.batch_normalization(self.VGG_local_pred_data, training=self.phase)
+		#self.input_vgg = self.VGG_local_pred_data
 
 		with tf.variable_scope("IncV4_embedding") as IncV4_scope:
 			IncV4_embedding = tf.contrib.layers.fully_connected(
